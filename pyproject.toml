@@ -6,7 +6,7 @@ readme = "README.md"
 authors = [
     { name = "Nagesh Sarode", email = "nageshsarode52@gmail.com" }
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.10,<3.13"
 dependencies = [
     "langchain>=1.0.0",
     "langchain-groq>=0.3.0",
