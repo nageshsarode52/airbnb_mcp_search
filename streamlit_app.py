@@ -1,5 +1,6 @@
 import asyncio
 import json
+import os
 import re
 from datetime import date, timedelta
 from urllib.parse import quote, urlencode, urlsplit
@@ -51,6 +52,11 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed",
 )
+
+try:
+    os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
+except (KeyError, FileNotFoundError):
+    pass
 
 st.markdown(
     """

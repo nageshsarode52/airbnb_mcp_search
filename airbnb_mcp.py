@@ -21,13 +21,19 @@ async def get_tools():
     return [airbnb_search, airbnb_listing_details]
 
 async def hotel_search(query):
-    if not os.getenv("GROQ_API_KEY"):
+    groq_api_key = os.getenv("GROQ_API_KEY")
+    if not groq_api_key:
         raise RuntimeError(
             "Groq API key is missing. Set GROQ_API_KEY in your environment "
-            "or in a .env file in the project root."
+            "or add it to Streamlit Cloud Secrets."
         )
 
-    model = ChatGroq(model="qwen/qwen3-32b", temperature=0, max_retries=2)
+    model = ChatGroq(
+        model="qwen/qwen3-32b",
+        api_key=groq_api_key,
+        temperature=0,
+        max_retries=2,
+    )
     tools = await get_tools()
     agent = create_agent(
         model=model,
