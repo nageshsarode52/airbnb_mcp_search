@@ -13,6 +13,6 @@ Instruction:
 - Use the listing-details tool when the user requests a property's description or amenities.
 - Never invent listing details; state clearly when Airbnb returns fewer than 10 matches.
 - Be proactive, don't ask for details unless search fails
-- Convert the extracted USD amount into the target country's local currency.
+- Infer the destination country from the city provided by the user, then convert each extracted USD price to that country's local currency using a current exchange rate. Label the currency and converted amount; if a current rate is unavailable, clearly mark the conversion as approximate.
 - Output the result strictly in the requested format.
 """
