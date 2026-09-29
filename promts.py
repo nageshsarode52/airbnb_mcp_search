@@ -13,5 +13,6 @@ Instruction:
 - Use the listing-details tool when the user requests a property's description or amenities.
 - Never invent listing details; state clearly when Airbnb returns fewer than 10 matches.
 - Be proactive, don't ask for details unless search fails
-- I want price in Indian rupees conversion
+- Convert the extracted USD amount into the target country's local currency.
+- Output the result strictly in the requested format.
 """
